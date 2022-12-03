@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BOOKS</title>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<link rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="script.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<style>
+      table, th, td {
+         border:1px solid black;
+      }
+   </style>
+</head>
+<body ng-app="myApp" ng-controller="UserController">
+<p align="right"><a href="index.html">BACK</a></p>
+<div class="bg-img">
+<div class="wrap">
+   <div class="search" align="center">
+      <input type="text" class="searchTerm" placeholder="Search Title" ng-model="titleS">
+      <button type="submit" class="searchButton" ng-click="click()" > 
+      <i class="fa fa-search"></i>
+      </button>
+      <input type="text" class="searchTerm" placeholder="Search Author" ng-model="authorS">
+      <button type="submit" class="searchButton" ng-click="click()"> 
+      <i class="fa fa-search"></i>
+      </button>
+      <input type="text" class="searchTerm" placeholder="Search Subject" ng-model="subjectS">
+      <button type="submit" class="searchButton" ng-click="click()"> 
+      <i class="fa fa-search"></i>
+      </button>
+     </div>
+     </div>
+<br><br><br><br><br><br><br>
+<table align="center">
+<tr ng-repeat="emp in book | filter:{title:titleS}| filter:{author:authorS}|filter:{subject:subjectS}">
+<td><img src="book.jpg" class="avatar"></td>
+<th>ID:</th>
+<td>{{emp.id}}</td>
+<th>Title:</th>
+<td>{{emp.title}}</td>
+<th>Author:</th>
+<td>{{emp.author}}</td>
+<th>Subject:</th>
+<td>{{emp.subject}}</td>
+<th>Date:</th>
+<td>{{emp.date}}</td>
+<td>
+ <input type="submit" value="View" ng-click="send()">
+</td>
+</tr>
+</table>
+<center><i style="font-size:20px;color:red;">Double Tap The Button to Navigate Between Pages</i></center>
+<center><button class="button button2" ng-click=clk()>PREVIOUS</button></center>
+<center><button class="button button2" ng-click=click()>NEXT</button></center>
+</div>
+</body>
+</html>
