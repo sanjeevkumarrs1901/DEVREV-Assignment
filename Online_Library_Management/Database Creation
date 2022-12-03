@@ -1,0 +1,8 @@
+// For Admin Login
+create table admin(name text,password text);
+
+// For User Login
+create table users(name text, password txt);
+
+//For Storing the book Details only by the Admin
+create table books(id serial, title text, author text, subject text, date_published text);
